@@ -9,6 +9,7 @@ import monacoEditorPlugin from 'vite-plugin-monaco-editor';
 import Shiki from '@shikijs/markdown-it';
 
 export default defineConfig({
+  base: process.env.VITE_BASE_URL ?? '/',
   plugins: [
     vue({ include: [/\.vue$/, /\.md$/] }),
     vueDevTools(),
