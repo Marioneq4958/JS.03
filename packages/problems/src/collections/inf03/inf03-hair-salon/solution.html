@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fryzjer</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>PROMOCJA!</h2>
+
+    <input type="radio" id="krotkie" name="dlugosc" checked />
+    <label for="krotkie">Krótkie</label>
+    <br />
+
+    <input type="radio" id="srednie" name="dlugosc" />
+    <label for="srednie">Średnie</label>
+    <br />
+
+    <input type="radio" id="poldlugie" name="dlugosc" />
+    <label for="poldlugie">Półdługie</label>
+    <br />
+
+    <input type="radio" id="dlugie" name="dlugosc" />
+    <label for="dlugie">Długie</label>
+    <br />
+
+    <button id="odkryj" onclick="odkryjPromocje()">Odkryj promocję</button>
+    <p id="wynik"></p>
+
+    <script>
+      function odkryjPromocje() {
+        let cena = 0;
+        if (document.getElementById('krotkie').checked) {
+          cena = 25 - 10;
+        } else if (document.getElementById('srednie').checked) {
+          cena = 30 - 10;
+        } else if (document.getElementById('poldlugie').checked) {
+          cena = 40 - 10;
+        } else if (document.getElementById('dlugie').checked) {
+          cena = 50 - 10;
+        }
+
+        document.getElementById('wynik').innerHTML = 'cena promocyjna: ' + cena;
+      }
+    </script>
+  </body>
+</html>

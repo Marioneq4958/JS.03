@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Konwerter dziesiętny na binarny</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+      body {
+        padding: 1rem;
+      }
+      #wynik {
+        margin-top: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <label for="liczba">Wpisz liczbę dziesiętną</label>
+    <br />
+    <input type="number" id="liczba" placeholder="Wpisz liczbę dziesiętną" />
+    <br />
+    <button id="przelicz" onclick="przelicz()">Przelicz na binarny</button>
+    <p id="wynik">Brak obliczeń</p>
+    <script>
+      function przelicz() {
+        let L = Number(document.getElementById('liczba').value);
+
+        if (L === 0) {
+          document.getElementById('wynik').innerHTML = '0<sub>(2)</sub>';
+          return;
+        }
+        let B = '';
+
+        while (L > 0) {
+          B = (L % 2) + B;
+          L = Math.floor(L / 2);
+        }
+
+        let sformatowanyWynik = '';
+        let licznik = 0;
+
+        for (let licznik = B.length - 1; licznik >= 0; licznik--) {
+          if (licznik > 0 && licznik % 4 === 0) {
+            sformatowanyWynik = ' ' + sformatowanyWynik;
+          }
+          sformatowanyWynik = B[licznik] + sformatowanyWynik;
+        }
+        document.getElementById('wynik').innerHTML = sformatowanyWynik + '<sub>(2)</sub>';
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Działania matematyczne</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Proste działania</h3>
+    <label for="a">liczba A: </label>
+    <input type="number" id="a" />
+    <br />
+    <label for="b">liczba B: </label>
+    <input type="number" id="b" />
+    <br />
+    <button id="dodaj" onclick="dodaj()">+</button>
+    <button id="odejmij" onclick="odejmij()">-</button>
+    <button id="pomnoz" onclick="pomnoz()">*</button>
+    <button id="podziel" onclick="podziel()">/</button>
+    <button id="potega" onclick="potega()">A^B</button>
+    <p id="wynik"></p>
+
+    <script>
+      function dodaj() {
+        let a = Number(document.getElementById('a').value);
+        let b = Number(document.getElementById('b').value);
+        let wynik = a + b;
+        document.getElementById('wynik').innerHTML = 'Wynik: ' + wynik;
+      }
+
+      function odejmij() {
+        let a = Number(document.getElementById('a').value);
+        let b = Number(document.getElementById('b').value);
+        let wynik = a - b;
+        document.getElementById('wynik').innerHTML = 'Wynik: ' + wynik;
+      }
+
+      function pomnoz() {
+        let a = Number(document.getElementById('a').value);
+        let b = Number(document.getElementById('b').value);
+        let wynik = a * b;
+        document.getElementById('wynik').innerHTML = 'Wynik: ' + wynik;
+      }
+
+      function podziel() {
+        let a = Number(document.getElementById('a').value);
+        let b = Number(document.getElementById('b').value);
+        let wynik = a / b;
+        document.getElementById('wynik').innerHTML = 'Wynik: ' + wynik;
+      }
+
+      function potega() {
+        let a = Number(document.getElementById('a').value);
+        let b = Number(document.getElementById('b').value);
+        let wynik = Math.pow(a, b);
+        document.getElementById('wynik').innerHTML = 'Wynik: ' + wynik;
+      }
+    </script>
+  </body>
+</html>

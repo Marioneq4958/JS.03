@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hurtownia</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <label for="numer-kawy">Podaj numer kawy:</label>
+    <br />
+    <input type="number" id="numer-kawy" />
+    <br />
+    <label for="waga">Podaj wagę w dekagramach:</label>
+    <br />
+    <input type="number" id="waga" />
+    <br />
+    <button id="zamow" onclick="zamow()">Zamów</button>
+    <p id="wynik"></p>
+
+    <script>
+      function zamow() {
+        let numerKawy = Number(document.getElementById('numer-kawy').value);
+        let waga = Number(document.getElementById('waga').value);
+
+        let cenaKg = 0;
+        if (numerKawy == 1) {
+          cenaKg = 5;
+        } else if (numerKawy == 2) {
+          cenaKg = 7;
+        } else if (numerKawy == 3) {
+          cenaKg = 6;
+        }
+
+        let cena = cenaKg * waga;
+
+        document.getElementById('wynik').innerHTML = 'Koszt zamówienia wynosi: ' + cena + ' zł';
+      }
+    </script>
+  </body>
+</html>

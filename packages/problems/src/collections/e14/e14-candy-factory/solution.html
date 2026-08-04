@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fabryka żelków</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Fabryka żelków</h2>
+    <label for="ksztalt">Podaj numer kształtu: </label>
+    <input type="number" id="ksztalt" />
+    <br />
+    Skomponuj swój kolor, podaj RGB:
+    <br />
+    <label for="r">R:</label>
+    <input type="number" id="r" />
+    <br />
+    <label for="g">G:</label>
+    <input type="number" id="g" />
+    <br />
+    <label for="b">B:</label>
+    <input type="number" id="b" />
+    <br />
+    <button id="zamow" onclick="zamow()">Zamów</button>
+    <p id="wynik">Wybrany kształt</p>
+    <button id="wybranyKolor">Wybrany kolor</button>
+
+    <script>
+      function zamow() {
+        let ksztalt = Number(document.getElementById('ksztalt').value);
+        let r = Number(document.getElementById('r').value);
+        let g = Number(document.getElementById('g').value);
+        let b = Number(document.getElementById('b').value);
+
+        let nazwaKsztatu = '';
+        if (ksztalt === 1) {
+          nazwaKsztatu = 'miś';
+        } else if (ksztalt === 2) {
+          nazwaKsztatu = 'żabka';
+        } else if (ksztalt === 3) {
+          nazwaKsztatu = 'serce';
+        } else {
+          nazwaKsztatu = 'inny kształt';
+        }
+
+        document.getElementById('wynik').innerHTML = 'Zamówiłeś żelka: ' + nazwaKsztatu;
+        document.getElementById('wybranyKolor').style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
+      }
+    </script>
+  </body>
+</html>

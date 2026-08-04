@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Style w JavaScript</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+      #blok-prawy {
+        background-color: maroon;
+        color: white;
+        height: 600px;
+        overflow: auto;
+      }
+      img,
+      ul {
+        float: left;
+      }
+      #blok-prawy p,
+      #blok-prawy img {
+        padding: 10px;
+      }
+      p {
+        clear: both;
+      }
+      img {
+        border: 1px solid white;
+        max-width: 150px;
+      }
+      #indigo {
+        background-color: indigo;
+      }
+      #steel-blue {
+        background-color: steelblue;
+      }
+      #olive {
+        background-color: olive;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="blok-lewy">
+      <h1>Konfigurator stylu</h1>
+      <p>
+        Podaj kolor tła <br />
+        <button id="indigo" onclick="ustawTlo('indigo')">Indigo</button>
+        <button id="steel-blue" onclick="ustawTlo('steelblue')">SteelBlue</button>
+        <button id="olive" onclick="ustawTlo('olive')">Olive</button>
+      </p>
+      <p>
+        <label for="kolor-czcionki">Podaj kolor czcionki</label> <br />
+        <select id="kolor-czcionki" onclick="ustawKolorCzcionki()">
+          <option value="white">White</option>
+          <option value="tan">Tan</option>
+          <option value="bisque">Bisque</option>
+          <option value="plum">Plum</option>
+        </select>
+      </p>
+      <p>
+        <label for="rozmiar-czcionki">Podaj rozmiar czcionki w procentach, np. 200%</label> <br />
+        <input type="text" value="100%" id="rozmiar-czcionki" onfocusout="ustawRozmiarCzcionki()" />
+      </p>
+      <p>
+        Czy rysunek ma mieć ramkę? <br />
+        <input type="checkbox" id="ramka" checked />
+        <label for="ramka" onclick="ustawRamke()">Rysuj ramkę</label>
+      </p>
+      <p>
+        Jaki jest typ punktora? <br />
+        <input type="radio" name="punktor" id="punktor-dysk" checked onclick="ustawPuntory('disc')" />
+        <label for="punktor-dysk">dysk</label> <br />
+        <input type="radio" name="punktor" id="punktor-kwadrat" onclick="ustawPuntory('square')" />
+        <label for="punktor-kwadrat">kwadrat</label> <br />
+        <input type="radio" name="punktor" id="punktor-okrag" onclick="ustawPuntory('circle')" />
+        <label for="punktor-okrag">okrąg</label>
+      </p>
+    </section>
+
+    <section id="blok-prawy">
+      <img src="gibraltar.jpg" alt="półwysep Gibraltar" id="prawy-obraz" />
+      <ul id="prawy-lista">
+        <li>element 1</li>
+        <li>element 2</li>
+        <li>element 3</li>
+      </ul>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+        laborum.
+      </p>
+    </section>
+
+    <script>
+      function ustawTlo(kolor) {
+        document.getElementById('blok-prawy').style.backgroundColor = kolor;
+      }
+
+      function ustawKolorCzcionki() {
+        let kolor = document.getElementById('kolor-czcionki').value;
+        document.getElementById('blok-prawy').style.color = kolor;
+      }
+
+      function ustawRozmiarCzcionki() {
+        let rozmiar = document.getElementById('rozmiar-czcionki').value;
+        document.getElementById('blok-prawy').style.fontSize = rozmiar;
+      }
+
+      function ustawRamke() {
+        if (document.getElementById('ramka').checked) {
+          document.getElementById('prawy-obraz').style.border = 'none';
+        } else {
+          document.getElementById('prawy-obraz').style.border = '1px solid white';
+        }
+      }
+
+      function ustawPuntory(typ) {
+        document.getElementById('prawy-lista').style.listStyleType = typ;
+      }
+    </script>
+  </body>
+</html>

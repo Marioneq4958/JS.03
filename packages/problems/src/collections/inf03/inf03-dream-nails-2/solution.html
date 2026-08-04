@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stylizacja paznokci</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+
+      body {
+        text-align: center;
+      }
+
+      .wzory {
+        border-radius: 50%;
+        margin: 4px;
+        width: 65px;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Wzór</h3>
+
+    <div id="obrazy"></div>
+
+    <script>
+      for (let i = 1; i <= 10; i++) {
+        document.getElementById('obrazy').innerHTML += '<img src="' + i + '.jpg" class="wzory" title="' + i + '">';
+      }
+    </script>
+  </body>
+</html>

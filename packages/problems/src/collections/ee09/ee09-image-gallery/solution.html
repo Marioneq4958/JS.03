@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galeria</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+
+      #glownyObraz {
+        width: 75%;
+      }
+
+      #miniatura1,
+      #miniatura2,
+      #miniatura3,
+      #miniatura4,
+      #miniatura5 {
+        width: 15%;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="prev" onclick="poprzednie()">prev</button>
+    <img id="glownyObraz" src="1.jpg" alt="galeria" />
+    <button id="next" onclick="nastepne()">next</button>
+    <hr />
+    <img id="miniatura1" src="1.jpg" alt="miniatura" onclick="wybierzMiniature(1)" />
+    <img id="miniatura2" src="2.jpg" alt="miniatura" onclick="wybierzMiniature(2)" />
+    <img id="miniatura3" src="3.jpg" alt="miniatura" onclick="wybierzMiniature(3)" />
+    <img id="miniatura4" src="4.jpg" alt="miniatura" onclick="wybierzMiniature(4)" />
+    <img id="miniatura5" src="5.jpg" alt="miniatura" onclick="wybierzMiniature(5)" />
+
+    <script>
+      let aktywneZdjecie = 1;
+
+      function nastepne() {
+        aktywneZdjecie = aktywneZdjecie + 1;
+        if (aktywneZdjecie > 5) {
+          aktywneZdjecie = 1;
+        }
+        wyswietlZdjecie();
+      }
+
+      function poprzednie() {
+        aktywneZdjecie = aktywneZdjecie - 1;
+        if (aktywneZdjecie < 1) {
+          aktywneZdjecie = 5;
+        }
+        wyswietlZdjecie();
+      }
+
+      function wybierzMiniature(numer) {
+        aktywneZdjecie = numer;
+        wyswietlZdjecie();
+      }
+
+      function wyswietlZdjecie() {
+        document.getElementById('glownyObraz').src = aktywneZdjecie + '.jpg';
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Malarz</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+
+      body {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Obliczanie na podstawie powierzchni zapotrzebowania na farbę</h3>
+    <label for="powierzchnia">Podaj powierzchnię:</label>
+    <input type="number" id="powierzchnia" />
+    <br />
+    <button id="przycisk" onclick="policz()">Policz</button>
+    <p id="wynik"></p>
+
+    <script>
+      function policz() {
+        let powierzchnia = Number(document.getElementById('powierzchnia').value);
+        let puszki = Math.ceil(powierzchnia / 4);
+
+        document.getElementById('wynik').innerHTML =
+          'Liczba jednolitrowych puszek farby potrzebnych do pomalowania wynosi: ' + puszki;
+      }
+    </script>
+  </body>
+</html>

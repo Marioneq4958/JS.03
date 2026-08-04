@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ogłoszenia</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Policz koszt ogłoszenia</h2>
+
+    <label for="liczba">Liczba ogłoszeń:</label>
+    <input type="number" id="liczba" />
+    <br />
+
+    <input type="checkbox" id="staly-klient" />
+    <label for="staly-klient">Jestem staym klientem</label>
+    <br />
+
+    <button id="kalkulacja" onclick="kalkulacja()">Kalkulacja</button>
+    <div id="wynik"></div>
+
+    <script>
+      function kalkulacja() {
+        let liczba = Number(document.getElementById('liczba').value);
+        let stalyKlient = document.getElementById('staly-klient').checked;
+
+        let cenaZaOgloszenie = 0;
+        if (liczba > 40) {
+          cenaZaOgloszenie = 2;
+        } else {
+          cenaZaOgloszenie = 3;
+        }
+
+        if (stalyKlient) {
+          cenaZaOgloszenie = cenaZaOgloszenie - 0.3;
+        }
+
+        let razem = cenaZaOgloszenie * liczba;
+        document.getElementById('wynik').innerHTML = 'Twoje ogłoszenia będą kosztować: ' + razem + ' PLN';
+      }
+    </script>
+  </body>
+</html>

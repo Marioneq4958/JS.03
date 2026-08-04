@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zamówienia hurtowe</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+
+      table {
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Zamówienia hurtowe</h2>
+    <table>
+      <tr>
+        <th>Produkt</th>
+        <th>Jednostka</th>
+        <th>Dostępna ilość</th>
+        <th>Aktualizacja</th>
+        <th>Zamówienie</th>
+      </tr>
+      <tr>
+        <td id="produkt0">Skrętka U/UTP drut</td>
+        <td>metr</td>
+        <td id="dostepna0">20</td>
+        <td><button id="aktualizuj0" onclick="aktualizuj(0)">Aktualizuj</button></td>
+        <td><button id="zamow0" onclick="zamow(0)">Zamów</button></td>
+      </tr>
+      <tr>
+        <td id="produkt1">Skrętka U/UTP linka</td>
+        <td>metr</td>
+        <td id="dostepna1">2</td>
+        <td><button id="aktualizuj1" onclick="aktualizuj(1)">Aktualizuj</button></td>
+        <td><button id="zamow1" onclick="zamow(1)">Zamów</button></td>
+      </tr>
+      <tr>
+        <td id="produkt2">Wtyki 8P8C</td>
+        <td>sztuki</td>
+        <td id="dostepna2">10</td>
+        <td><button id="aktualizuj2" onclick="aktualizuj(2)">Aktualizuj</button></td>
+        <td><button id="zamow2" onclick="zamow(2)">Zamów</button></td>
+      </tr>
+      <tr>
+        <td id="produkt3">Moduły Keystone</td>
+        <td>sztuki</td>
+        <td id="dostepna3">30</td>
+        <td><button id="aktualizuj3" onclick="aktualizuj(3)">Aktualizuj</button></td>
+        <td><button id="zamow3" onclick="zamow(3)">Zamów</button></td>
+      </tr>
+    </table>
+
+    <script>
+      let idZamowienia = 0;
+
+      function zaznaczBraki() {
+        for (let indeks = 0; indeks < 4; indeks++) {
+          let komorka = document.getElementById('dostepna' + indeks);
+          let wartosc = Number(komorka.innerHTML);
+
+          if (wartosc === 0) {
+            komorka.style.backgroundColor = 'red';
+          } else if (wartosc >= 1 && wartosc <= 5) {
+            komorka.style.backgroundColor = 'yellow';
+          } else {
+            komorka.style.backgroundColor = 'honeydew';
+          }
+        }
+      }
+
+      function aktualizuj(indeks) {
+        let nowaIlosc = prompt('Podaj nową ilość:');
+        if (nowaIlosc !== null) {
+          document.getElementById('dostepna' + indeks).innerHTML = nowaIlosc;
+          zaznaczBraki();
+        }
+      }
+
+      function zamow(indeks) {
+        idZamowienia = idZamowienia + 1;
+        let nazwaProduktu = document.getElementById('produkt' + indeks).innerHTML;
+        alert('Zamówienie nr: ' + idZamowienia + ' Produkt: ' + nazwaProduktu);
+      }
+
+      zaznaczBraki();
+    </script>
+  </body>
+</html>

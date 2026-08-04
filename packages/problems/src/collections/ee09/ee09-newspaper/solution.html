@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gazeta</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+      .artykul {
+        display: none;
+      }
+      button {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn-kraj" onclick="pokaz(1)">Sekcja wiadomości z kraju</button>
+    <div id="art-kraj" class="artykul">
+      <h2>Szczepimy seniorów</h2>
+      <p>Od piątku...</p>
+    </div>
+
+    <button id="btn-sport" onclick="pokaz(2)">Sekcja sportowa</button>
+    <div id="art-sport" class="artykul">
+      <h2>Stoch i Kubacki ...</h2>
+      <p>W środę ...</p>
+    </div>
+
+    <button id="btn-aktualnosci" onclick="pokaz(3)">Sekcja aktualności</button>
+    <div id="art-aktualnosci" class="artykul">
+      <h2>Dzień Babci 2021 ...</h2>
+      <p>Dzień Babci to ...</p>
+    </div>
+
+    <button id="btn-ogloszenia" onclick="pokaz(4)">Sekcja ogłoszeń</button>
+    <div id="art-ogloszenia" class="artykul">
+      <h2>Zaginione / znalezione</h2>
+      <p>W Oławie ...</p>
+    </div>
+
+    <script>
+      function pokaz(nr) {
+        if (nr === 1) {
+          document.getElementById('art-kraj').style.display = 'block';
+          document.getElementById('art-sport').style.display = 'none';
+          document.getElementById('art-aktualnosci').style.display = 'none';
+          document.getElementById('art-ogloszenia').style.display = 'none';
+        } else if (nr === 2) {
+          document.getElementById('art-kraj').style.display = 'none';
+          document.getElementById('art-sport').style.display = 'block';
+          document.getElementById('art-aktualnosci').style.display = 'none';
+          document.getElementById('art-ogloszenia').style.display = 'none';
+        } else if (nr === 3) {
+          document.getElementById('art-kraj').style.display = 'none';
+          document.getElementById('art-sport').style.display = 'none';
+          document.getElementById('art-aktualnosci').style.display = 'block';
+          document.getElementById('art-ogloszenia').style.display = 'none';
+        } else if (nr === 4) {
+          document.getElementById('art-kraj').style.display = 'none';
+          document.getElementById('art-sport').style.display = 'none';
+          document.getElementById('art-aktualnosci').style.display = 'none';
+          document.getElementById('art-ogloszenia').style.display = 'block';
+        }
+      }
+    </script>
+  </body>
+</html>

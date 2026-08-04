@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wskaźnik jakości hasła</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+
+      body {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <label for="haslo">Wpisz hasło: </label>
+    <input type="password" id="haslo" />
+    <button id="przycisk" onclick="weryfikuj()">Weryfikuj</button>
+    <p id="wynik"></p>
+
+    <script>
+      function weryfikuj() {
+        let wynikElement = document.getElementById('wynik');
+        let haslo = document.getElementById('haslo').value;
+
+        let czyZawieraCyfre = false;
+        if (
+          haslo.includes('0') ||
+          haslo.includes('1') ||
+          haslo.includes('2') ||
+          haslo.includes('3') ||
+          haslo.includes('4') ||
+          haslo.includes('5') ||
+          haslo.includes('6') ||
+          haslo.includes('7') ||
+          haslo.includes('8') ||
+          haslo.includes('9')
+        ) {
+          czyZawieraCyfre = true;
+        }
+
+        if (haslo === '') {
+          wynikElement.innerHTML = 'HASŁO JEST PUSTE';
+          wynikElement.style.color = 'red';
+        } else if (czyZawieraCyfre && haslo.length >= 7) {
+          wynikElement.innerHTML = 'HASŁO JEST DOBRE';
+          wynikElement.style.color = 'green';
+        } else if (czyZawieraCyfre && haslo.length >= 4 && haslo.length <= 6) {
+          wynikElement.innerHTML = 'HASŁO JEST ŚREDNIE';
+          wynikElement.style.color = 'blue';
+        } else {
+          wynikElement.innerHTML = 'HASŁO JEST SŁABE';
+          wynikElement.style.color = 'yellow';
+        }
+      }
+    </script>
+  </body>
+</html>

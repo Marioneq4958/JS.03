@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stacja paliw</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Oblicz koszt paliwa</h3>
+    <label for="rodzaj">Rodzaj paliwa (1-benzyna, 2-olej napędowy): </label>
+    <br />
+    <input type="number" id="rodzaj" />
+    <br />
+    <label for="litry">Ile litrów</label>
+    <br />
+    <input type="number" id="litry" />
+    <br />
+    <button id="oblicz" onclick="oblicz()">OBLICZ</button>
+    <p id="wynik"></p>
+
+    <script>
+      function oblicz() {
+        let rodzaj = Number(document.getElementById('rodzaj').value);
+        let litry = Number(document.getElementById('litry').value);
+        let cenaZaLitr = 0;
+
+        if (rodzaj === 1) {
+          cenaZaLitr = 4;
+        } else if (rodzaj === 2) {
+          cenaZaLitr = 3.5;
+        }
+
+        let koszt = cenaZaLitr * litry;
+        document.getElementById('wynik').innerHTML = 'koszt paliwa: ' + koszt + ' zł';
+      }
+    </script>
+  </body>
+</html>

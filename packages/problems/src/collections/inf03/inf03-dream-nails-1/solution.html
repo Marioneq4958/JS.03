@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stylizacja paznokci</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+
+      nav * {
+        width: 26%;
+        display: inline-block;
+        padding: 10px;
+        text-align: center;
+        background-color: crimson;
+        color: white;
+      }
+
+      #nawigacja-kolor {
+        background-color: salmon;
+      }
+
+      #ksztalt-sekcja,
+      #wzor-sekcja {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div id="nawigacja-kolor" onmouseover="pokazKolor()">Kolor</div>
+      <div id="nawigacja-ksztalt" onmouseover="pokazKsztalt()">Kształt</div>
+      <div id="nawigacja-wzor" onmouseover="pokazWzor()">Wzór</div>
+    </nav>
+
+    <section id="kolor-sekcja">
+      <h3>Kolor</h3>
+      <p>[Zawartość sekcji]</p>
+    </section>
+    <section id="ksztalt-sekcja">
+      <h3>Kształt</h3>
+      <p>[Zawartość sekcji]</p>
+    </section>
+    <section id="wzor-sekcja">
+      <h3>Wzór</h3>
+      <p>[Zawartość sekcji]</p>
+    </section>
+
+    <script>
+      function pokazKolor() {
+        document.getElementById('kolor-sekcja').style.display = 'block';
+        document.getElementById('ksztalt-sekcja').style.display = 'none';
+        document.getElementById('wzor-sekcja').style.display = 'none';
+
+        document.getElementById('nawigacja-kolor').style.backgroundColor = 'salmon';
+        document.getElementById('nawigacja-ksztalt').style.backgroundColor = 'crimson';
+        document.getElementById('nawigacja-wzor').style.backgroundColor = 'crimson';
+      }
+
+      function pokazKsztalt() {
+        document.getElementById('kolor-sekcja').style.display = 'none';
+        document.getElementById('ksztalt-sekcja').style.display = 'block';
+        document.getElementById('wzor-sekcja').style.display = 'none';
+
+        document.getElementById('nawigacja-kolor').style.backgroundColor = 'crimson';
+        document.getElementById('nawigacja-ksztalt').style.backgroundColor = 'salmon';
+        document.getElementById('nawigacja-wzor').style.backgroundColor = 'crimson';
+      }
+
+      function pokazWzor() {
+        document.getElementById('kolor-sekcja').style.display = 'none';
+        document.getElementById('ksztalt-sekcja').style.display = 'none';
+        document.getElementById('wzor-sekcja').style.display = 'block';
+
+        document.getElementById('nawigacja-kolor').style.backgroundColor = 'crimson';
+        document.getElementById('nawigacja-ksztalt').style.backgroundColor = 'crimson';
+        document.getElementById('nawigacja-wzor').style.backgroundColor = 'salmon';
+      }
+    </script>
+  </body>
+</html>

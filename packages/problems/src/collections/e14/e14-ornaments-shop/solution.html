@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sklep</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+
+      body {
+        text-align: center;
+      }
+
+      img {
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <img
+        id="choinka"
+        src="choinka.jpg"
+        alt="ozdoby choinkowe"
+        onmouseover="wyswietlWybor('choinka')"
+        onmouseout="wyczysc()"
+      />
+      <img
+        id="mikolaj"
+        src="mikolaj.jpg"
+        alt="ozdoby choinkowe"
+        onmouseover="wyswietlWybor('mikolaj')"
+        onmouseout="wyczysc()"
+      />
+      <img
+        id="renifer"
+        src="renifer.jpg"
+        alt="ozdoby choinkowe"
+        onmouseover="wyswietlWybor('renifer')"
+        onmouseout="wyczysc()"
+      />
+    </div>
+    <p>Wybierz ozdobę w kółku</p>
+    <p id="wynik"></p>
+
+    <script>
+      function wyswietlWybor(ozdoba) {
+        let wiadomosc = '';
+        if (ozdoba === 'choinka') {
+          wiadomosc = 'Wybrałeś choinkę. Cena 10 zł';
+        } else if (ozdoba === 'mikolaj') {
+          wiadomosc = 'Wybrałeś mikołaja. Cena 12 zł';
+        } else if (ozdoba === 'renifer') {
+          wiadomosc = 'Wybrałeś renifera. Cena 8 zł';
+        }
+
+        document.getElementById('wynik').innerHTML = wiadomosc;
+      }
+
+      function wyczysc() {
+        document.getElementById('wynik').innerHTML = '';
+      }
+    </script>
+  </body>
+</html>

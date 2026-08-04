@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sklep - rejestracja</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+
+      button {
+        background-color: steelblue;
+        color: white;
+        min-width: 20%;
+        padding: 15px;
+      }
+
+      button:hover {
+        background-color: navy;
+      }
+
+      section {
+        background-color: lightblue;
+        padding: 20px;
+      }
+
+      #blok-adres,
+      #blok-kontakt {
+        display: none;
+      }
+
+      #pasek-postepu {
+        background-color: lightgrey;
+      }
+
+      #pasek-postepu-blok {
+        background-color: navy;
+        height: 30px;
+        width: 4%;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="przycisk-klient" onclick="aktywuj('blok-klient')">Klient</button>
+    <button id="przycisk-adres" onclick="aktywuj('blok-adres')">Adres</button>
+    <button id="przycisk-kontakt" onclick="aktywuj('blok-kontakt')">Kontakt</button>
+
+    <section id="blok-klient">
+      <p>
+        <label for="imie">Imię</label>
+      </p>
+      <input type="text" id="imie" onfocusout="zmienWartoscPaska()" />
+
+      <p>
+        <label for="nazwisko">Nazwisko</label>
+      </p>
+      <input type="text" id="nazwisko" onfocusout="zmienWartoscPaska()" />
+
+      <p>
+        <label for="data-ur">Data urodzenia</label>
+      </p>
+      <input type="date" id="data-ur" onfocusout="zmienWartoscPaska()" />
+    </section>
+
+    <section id="blok-adres">
+      <p>
+        <label for="ulica">Ulica</label>
+      </p>
+      <input type="text" id="ulica" onfocusout="zmienWartoscPaska()" />
+
+      <p>
+        <label for="numer">Numer</label>
+      </p>
+      <input type="number" id="numer" onfocusout="zmienWartoscPaska()" />
+
+      <p>
+        <label for="miasto">Miasto</label>
+      </p>
+      <input type="text" id="miasto" onfocusout="zmienWartoscPaska()" />
+    </section>
+
+    <section id="blok-kontakt">
+      <p>
+        <label for="numer-kom">Numer komórkowy</label>
+      </p>
+      <input type="tel" id="numer-kom" onfocusout="zmienWartoscPaska()" />
+      <br />
+
+      <input type="checkbox" id="rodo" onfocusout="zmienWartoscPaska()" />
+      <label for="rodo">Akceptuję RODO</label>
+      <br />
+
+      <button id="zatwierdz" onclick="zatwierdz()">Zatwierdź dane</button>
+    </section>
+
+    <div id="pasek-postepu">
+      <div id="pasek-postepu-blok"></div>
+    </div>
+
+    <script>
+      function aktywuj(blokId) {
+        document.getElementById('blok-klient').style.display = 'none';
+        document.getElementById('blok-adres').style.display = 'none';
+        document.getElementById('blok-kontakt').style.display = 'none';
+
+        document.getElementById(blokId).style.display = 'block';
+      }
+
+      let wartoscPaska = 4;
+      function zmienWartoscPaska() {
+        wartoscPaska = wartoscPaska + 12;
+        if (wartoscPaska > 100) {
+          wartoscPaska = 100;
+        }
+        document.getElementById('pasek-postepu-blok').style.width = wartoscPaska + '%';
+      }
+
+      function zatwierdz() {
+        let imie = document.getElementById('imie').value;
+        let nazwisko = document.getElementById('nazwisko').value;
+        let dataUr = document.getElementById('data-ur').value;
+        let ulica = document.getElementById('ulica').value;
+        let numer = document.getElementById('numer').value;
+        let miasto = document.getElementById('miasto').value;
+        let numerKom = document.getElementById('numer-kom').value;
+        let rodo = document.getElementById('rodo').value;
+
+        console.log(
+          imie +
+            ', ' +
+            nazwisko +
+            ', ' +
+            dataUr +
+            ', ' +
+            ulica +
+            ', ' +
+            numer +
+            ', ' +
+            miasto +
+            ', ' +
+            numerKom +
+            ', ' +
+            rodo +
+            ',',
+        );
+      }
+    </script>
+  </body>
+</html>

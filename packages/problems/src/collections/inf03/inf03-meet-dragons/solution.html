@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smoki</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+
+      nav {
+        display: flex;
+      }
+
+      nav * {
+        flex: 1;
+        padding: 10px;
+        text-align: center;
+        background-color: #ffaea5;
+      }
+
+      #nawigacja-baza {
+        background-color: mistyrose;
+      }
+
+      #opisy-sekcja,
+      #galeria-sekcja {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div id="nawigacja-baza" onclick="pokazBaza()">Baza</div>
+      <div id="nawigacja-opisy" onclick="pokazOpisy()">Opisy</div>
+      <div id="nawigacja-galeria" onclick="pokazGaleria()">Galeria</div>
+    </nav>
+
+    <main>
+      <section id="baza-sekcja">
+        <h3>Baza Smoków</h3>
+        <p>[Zawartość sekcji]</p>
+      </section>
+      <section id="opisy-sekcja">
+        <h3>Opisy smoków</h3>
+        <p>[Zawartość sekcji]</p>
+      </section>
+      <section id="galeria-sekcja">
+        <h3>Galeria</h3>
+        <p>[Zawartość sekcji]</p>
+      </section>
+    </main>
+
+    <script>
+      function pokazBaza() {
+        document.getElementById('nawigacja-baza').style.backgroundColor = 'mistyrose';
+        document.getElementById('nawigacja-opisy').style.backgroundColor = '#FFAEA5';
+        document.getElementById('nawigacja-galeria').style.backgroundColor = '#FFAEA5';
+
+        document.getElementById('baza-sekcja').style.display = 'block';
+        document.getElementById('opisy-sekcja').style.display = 'none';
+        document.getElementById('galeria-sekcja').style.display = 'none';
+      }
+
+      function pokazOpisy() {
+        document.getElementById('nawigacja-baza').style.backgroundColor = '#FFAEA5';
+        document.getElementById('nawigacja-opisy').style.backgroundColor = 'mistyrose';
+        document.getElementById('nawigacja-galeria').style.backgroundColor = '#FFAEA5';
+
+        document.getElementById('baza-sekcja').style.display = 'none';
+        document.getElementById('opisy-sekcja').style.display = 'block';
+        document.getElementById('galeria-sekcja').style.display = 'none';
+      }
+
+      function pokazGaleria() {
+        document.getElementById('nawigacja-baza').style.backgroundColor = '#FFAEA5';
+        document.getElementById('nawigacja-opisy').style.backgroundColor = '#FFAEA5';
+        document.getElementById('nawigacja-galeria').style.backgroundColor = 'mistyrose';
+
+        document.getElementById('baza-sekcja').style.display = 'none';
+        document.getElementById('opisy-sekcja').style.display = 'none';
+        document.getElementById('galeria-sekcja').style.display = 'block';
+      }
+    </script>
+  </body>
+</html>

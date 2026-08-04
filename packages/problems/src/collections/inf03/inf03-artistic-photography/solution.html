@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tatuaże</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+
+      img {
+        width: 100px;
+        float: right;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h3>Zamówienie</h3>
+
+      <label for="wybierz-obraz">Wybierz obraz: </label>
+      <input type="file" id="wybierz-obraz" />
+      <br />
+
+      <label for="liczba-kopii">Liczba Kopii: </label>
+      <input type="number" id="liczba-kopii" />
+      <br />
+
+      <input type="radio" name="papier" id="papier-blyszczacy" checked />
+      <label for="papier-blyszczacy">Papier błyszczący</label>
+      <br />
+
+      <input type="radio" name="papier" id="papier-matowy" />
+      <label for="papier-matowy">Papier matowy</label>
+      <br />
+
+      <button id="przycisk" onclick="dodaj()">Dodaj do koszyka</button>
+    </section>
+
+    <section>
+      <h3>Koszyk</h3>
+      <div id="koszyk"></div>
+    </section>
+
+    <script>
+      function dodaj() {
+        let obrazPlik = document.getElementById('wybierz-obraz').files[0].name;
+        let liczbaKopii = Number(document.getElementById('liczba-kopii').value);
+
+        let cenaJednostkowa = 0;
+        if (document.getElementById('papier-blyszczacy').checked) {
+          cenaJednostkowa = 1.5;
+        } else if (document.getElementById('papier-matowy').checked) {
+          cenaJednostkowa = 2;
+        }
+
+        let cena = cenaJednostkowa * liczbaKopii;
+
+        document.getElementById('koszyk').innerHTML += '<img src="' + obrazPlik + '">';
+        document.getElementById('koszyk').innerHTML += '<p>Liczba kopii: ' + liczbaKopii + '</p>';
+        document.getElementById('koszyk').innerHTML += '<p>Cena: ' + cena + '</p>';
+      }
+    </script>
+  </body>
+</html>

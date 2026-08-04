@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+
+      .jolka {
+        background-color: #eee;
+      }
+
+      .jolka img {
+        float: left;
+      }
+
+      .krzysiek {
+        background-color: #ccc;
+        text-align: right;
+      }
+
+      .krzysiek img {
+        float: right;
+      }
+
+      input {
+        width: 60%;
+      }
+
+      #chat {
+        height: 470px;
+        overflow: scroll;
+        border: 1px solid tomato;
+      }
+
+      #chat div {
+        height: 50px;
+        padding: 5px;
+      }
+
+      img {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="chat">
+      <div class="jolka">
+        <img src="Jolka.jpg" />
+        <p>Cześć idziesz jutro do kina?</p>
+      </div>
+      <div class="krzysiek">
+        <img src="Krzysiek.jpg" />
+        <p>Tak! A ty?</p>
+      </div>
+    </div>
+
+    <label for="tresc">Wpisz wiadomość:</label>
+    <input type="text" id="tresc" />
+    <button id="przycisk-wyslij" onclick="wyslij()">Wyślij</button>
+    <br />
+    <button id="przycisk-generuj" onclick="generuj()">Generuj losową odpowiedź</button>
+
+    <script>
+      let teksty = [
+        'Świetnie!',
+        'Kto gra główną rolę?',
+        'Lubisz filmy Tego reżysera?',
+        'Będę 10 minut wcześniej',
+        'Może kupimy sobie popcorn?',
+        'Ja wolę Colę',
+        'Zaproszę jeszcze Grześka',
+        'Tydzień temu też byłem w kinie na Diunie',
+        'Ja funduję bilety',
+      ];
+
+      function wyslij() {
+        let tresc = document.getElementById('tresc').value;
+
+        let wiadomosc = document.createElement('div');
+        wiadomosc.className = 'jolka';
+        wiadomosc.innerHTML = '<img src="Jolka.jpg"><p>' + tresc + '</p>';
+
+        document.getElementById('chat').appendChild(wiadomosc);
+        wiadomosc.scrollIntoView();
+      }
+
+      function generuj() {
+        let indeks = Math.floor(Math.random() * 9);
+        let tresc = teksty[indeks];
+
+        let wiadomosc = document.createElement('div');
+        wiadomosc.className = 'krzysiek';
+        wiadomosc.innerHTML = '<img src="Krzysiek.jpg"><p>' + tresc + '</p>';
+
+        document.getElementById('chat').appendChild(wiadomosc);
+        wiadomosc.scrollIntoView();
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Efekty obrazu</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+
+      img {
+        max-width: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Efekty obrazu</h2>
+
+    <div>
+      <img id="obraz1" src="pszczola.jpg" alt="pszczoła na fioletowym kwiatku" />
+      <br />
+      <input type="radio" id="blur" name="efekt1" />
+      <label for="blur">Blur</label>
+      <input type="radio" id="sepia" name="efekt1" />
+      <label for="sepia">Sepia</label>
+      <input type="radio" id="negatyw" name="efekt1" />
+      <label for="negatyw">Negatyw</label>
+      <br />
+      <button id="zastosuj1">Zastosuj</button>
+    </div>
+
+    <hr />
+
+    <div>
+      <img id="obraz2" src="pomarancza.jpg" alt="drzewo pomarańczy" />
+      <br />
+      <button id="kolorowy">Kolorowy</button>
+      <button id="czarnobialy">Czarno-biały</button>
+    </div>
+
+    <hr />
+
+    <div>
+      <img id="obraz3" src="owoce.jpg" alt="Kosz pełen owoców" />
+      <br />
+      <input type="range" id="zakres3" min="0" max="100" value="100" />
+      <br />
+      <button id="zastosuj3">Zastosuj</button>
+    </div>
+
+    <hr />
+
+    <div>
+      <img id="obraz4" src="zolw.jpg" alt="Żółw w wodzie" />
+      <br />
+      <input type="range" id="zakres4" min="0" max="250" />
+      <br />
+      <button id="zastosuj4">Zastosuj</button>
+    </div>
+
+    <script>
+      // Skrypt
+    </script>
+  </body>
+</html>

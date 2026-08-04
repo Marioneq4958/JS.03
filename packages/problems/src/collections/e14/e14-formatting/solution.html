@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formatowanie</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+
+      button {
+        width: 50px;
+        height: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      <label for="rozmiar-tekstu">Podaj rozmiar tekstu w procentach: </label>
+      <input type="number" id="rozmiar-tekstu" /> %
+    </p>
+
+    <p>
+      <select id="styl-czcionki">
+        <option value="prosty">prosty</option>
+        <option value="kursywa">kursywa</option>
+      </select>
+    </p>
+
+    <p>
+      Jakim kolorem sformatować tekst? Wybierz przycisk <br />
+      <button id="czerwony" style="background-color: red" onclick="formatuj('red')"></button>
+      <button id="zielony" style="background-color: green" onclick="formatuj('green')"></button>
+      <button id="niebieski" style="background-color: blue" onclick="formatuj('blue')"></button>
+    </p>
+
+    <p id="paragraf">To jest przykład paragrafu, który może być dowolnie formatowany przez JavaScript</p>
+
+    <script>
+      function formatuj(kolor) {
+        let paragraf = document.getElementById('paragraf');
+
+        paragraf.style.fontSize = document.getElementById('rozmiar-tekstu').value + '%';
+
+        let styl = document.getElementById('styl-czcionki').value;
+        if (styl === 'prosty') {
+          paragraf.style.fontStyle = 'normal';
+        } else {
+          paragraf.style.fontStyle = 'italic';
+        }
+
+        paragraf.style.color = kolor;
+      }
+    </script>
+  </body>
+</html>

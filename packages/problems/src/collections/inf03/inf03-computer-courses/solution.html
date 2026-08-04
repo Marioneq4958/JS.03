@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kursy komputerowe</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Oblicz miesięczną ratę</h3>
+
+    <input type="checkbox" id="react" />
+    <label for="react">Kurs React.js</label>
+    <br />
+
+    <input type="checkbox" id="js" />
+    <label for="js">Kurs JavaScript</label>
+    <br />
+
+    <label for="raty">Liczba rat: </label>
+    <input type="number" id="raty" />
+    <br />
+
+    <select id="miasto">
+      <option value="Warszawa">Warszawa</option>
+      <option value="Katowice">Katowice</option>
+      <option value="Gdańsk">Gdańsk</option>
+    </select>
+    <br />
+
+    <button id="oblicz" onclick="oblicz()">Oblicz</button>
+
+    <p id="wynik"></p>
+
+    <script>
+      function oblicz() {
+        let react = document.getElementById('react').checked;
+        let js = document.getElementById('js').checked;
+        let raty = Number(document.getElementById('raty').value);
+        let miasto = document.getElementById('miasto').value;
+
+        let kwota = 0;
+        if (react) {
+          kwota += 5000;
+        }
+        if (js) {
+          kwota += 3000;
+        }
+
+        let rata = kwota / raty;
+
+        document.getElementById('wynik').innerHTML =
+          'Kurs odbędzie się w ' +
+          miasto +
+          '. Koszt całkowity: ' +
+          kwota +
+          ' zł. Płacisz ' +
+          raty +
+          ' rat po ' +
+          rata +
+          ' zł';
+      }
+    </script>
+  </body>
+</html>

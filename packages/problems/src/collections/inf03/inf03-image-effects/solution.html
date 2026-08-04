@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Efekty obrazu</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+
+      img {
+        max-width: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Efekty obrazu</h2>
+
+    <div>
+      <img id="obraz1" src="pszczola.jpg" alt="pszczoła na fioletowym kwiatku" />
+      <br />
+      <input type="radio" id="blur" name="efekt1" />
+      <label for="blur">Blur</label>
+      <input type="radio" id="sepia" name="efekt1" />
+      <label for="sepia">Sepia</label>
+      <input type="radio" id="negatyw" name="efekt1" />
+      <label for="negatyw">Negatyw</label>
+      <br />
+      <button id="zastosuj1" onclick="zastosujEfekt1()">Zastosuj</button>
+    </div>
+
+    <hr />
+
+    <div>
+      <img id="obraz2" src="pomarancza.jpg" alt="drzewo pomarańczy" />
+      <br />
+      <button id="kolorowy" onclick="zastosujKolorowy()">Kolorowy</button>
+      <button id="czarnobialy" onclick="zastosujCzarnobialy()">Czarno-biały</button>
+    </div>
+
+    <hr />
+
+    <div>
+      <img id="obraz3" src="owoce.jpg" alt="Kosz pełen owoców" />
+      <br />
+      <input type="range" id="zakres3" min="0" max="100" value="100" />
+      <br />
+      <button id="zastosuj3" onclick="zastosujEfekt3()">Zastosuj</button>
+    </div>
+
+    <hr />
+
+    <div>
+      <img id="obraz4" src="zolw.jpg" alt="Żółw w wodzie" />
+      <br />
+      <input type="range" id="zakres4" min="0" max="250" />
+      <br />
+      <button id="zastosuj4" onclick="zastosujEfekt4()">Zastosuj</button>
+    </div>
+
+    <script>
+      function zastosujEfekt1() {
+        let obraz1 = document.getElementById('obraz1');
+
+        if (document.getElementById('blur').checked) {
+          obraz1.style.filter = 'blur(6px)';
+        } else if (document.getElementById('sepia').checked) {
+          obraz1.style.filter = 'sepia(100%)';
+        } else if (document.getElementById('negatyw').checked) {
+          obraz1.style.filter = 'invert(100%)';
+        }
+      }
+
+      function zastosujKolorowy() {
+        let obraz2 = document.getElementById('obraz2');
+        obraz2.style.filter = 'none';
+      }
+
+      function zastosujCzarnobialy() {
+        let obraz2 = document.getElementById('obraz2');
+        obraz2.style.filter = 'grayscale(100%)';
+      }
+
+      function zastosujEfekt3() {
+        let obraz3 = document.getElementById('obraz3');
+        let wartosc3 = Number(document.getElementById('zakres3').value);
+        obraz3.style.filter = 'opacity(' + wartosc3 + '%)';
+      }
+
+      function zastosujEfekt4() {
+        let obraz4 = document.getElementById('obraz4');
+        let wartosc4 = Number(document.getElementById('zakres4').value);
+        obraz4.style.filter = 'brightness(' + wartosc4 + '%)';
+      }
+    </script>
+  </body>
+</html>

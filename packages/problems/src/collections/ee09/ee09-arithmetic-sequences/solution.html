@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ciągi liczbowe</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Generowanie ciągu arytmetycznego</h2>
+    <label for="a1">Pierwszy wyraz A1: </label>
+    <input type="number" id="a1" />
+    <br />
+    <label for="r">Różnica ciągu R: </label>
+    <input type="number" id="r" />
+    <br />
+    <label for="n">Liczba wyrazów w ciągu N: </label>
+    <input type="number" id="n" />
+    <br />
+    <button id="przycisk" onclick="generujCiag()">Generuj Ciąg</button>
+    <p id="wynik"></p>
+
+    <script>
+      function generujCiag() {
+        let a1 = Number(document.getElementById('a1').value);
+        let r = Number(document.getElementById('r').value);
+        let n = Number(document.getElementById('n').value);
+
+        let wyrazy = '';
+        for (let licznik = 0; licznik < n; licznik++) {
+          let wyraz = a1 + licznik * r;
+
+          if (licznik + 1 === n) {
+            wyrazy = wyrazy + wyraz;
+          } else {
+            wyrazy = wyrazy + wyraz + ', ';
+          }
+        }
+
+        document.getElementById('wynik').innerHTML = 'Ciąg arytmetyczny zawiera wyrazy: ' + wyrazy;
+      }
+    </script>
+  </body>
+</html>

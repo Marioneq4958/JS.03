@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pola figur płaskich</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+
+      body {
+        background-color: dodgerblue;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Pole prostokąta / pole trójkąta</h3>
+
+    <label for="pole1">Bok prostokąta / podstawa trójkąta:</label>
+    <input type="number" id="pole1" />
+    <br />
+
+    <label for="pole2">Drugi bok prostokąta / wysokość trójkąta:</label>
+    <input type="number" id="pole2" />
+    <br />
+
+    <button id="przycisk" onclick="oblicz()">Oblicz</button>
+    <p id="wynik"></p>
+
+    <hr />
+
+    <img id="wybrana-figura" src="1d.bmp" alt="Figura" />
+    <br />
+
+    <img id="trojkat" class="maly" src="1m.bmp" alt="Wybierz trójkąt" onclick="zmienDuzyObraz('1d.bmp')" />
+    <img id="prostokat" class="maly" src="2m.bmp" alt="Wybierz prostokąt" onclick="zmienDuzyObraz('2d.bmp')" />
+
+    <script>
+      function zmienDuzyObraz(nazwaPliku) {
+        document.getElementById('wybrana-figura').src = nazwaPliku;
+      }
+
+      function oblicz() {
+        let a = Number(document.getElementById('pole1').value);
+        let b = Number(document.getElementById('pole2').value);
+
+        let figuraPlik = document.getElementById('wybrana-figura').src;
+        if (figuraPlik.includes('2d.bmp')) {
+          document.getElementById('wynik').innerHTML = a * b;
+        } else if (figuraPlik.includes('1d.bmp')) {
+          document.getElementById('wynik').innerHTML = (a * b) / 2;
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Planer zadań</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+
+      nav {
+        text-align: center;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      li {
+        margin: 10px;
+      }
+
+      ul button {
+        float: right;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <input type="text" placeholder="Dodaj zadanie..." id="dodaj-pole" />
+      <button id="dodaj-przycisk" onclick="dodajZadanie()">Dodaj</button>
+    </nav>
+
+    <main>
+      <ul id="lista">
+        <li>
+          Wyprowadzić psa
+          <button onclick="wykonane(this)">Wykonane</button>
+        </li>
+        <li>
+          Gimnastyka
+          <button onclick="wykonane(this)">Wykonane</button>
+        </li>
+        <li>
+          Zakupy
+          <button onclick="wykonane(this)">Wykonane</button>
+        </li>
+        <li>
+          Spacer z kumplem
+          <button onclick="wykonane(this)">Wykonane</button>
+        </li>
+        <li>
+          Odrabianie lekcji z młodszą siostrą
+          <button onclick="wykonane(this)">Wykonane</button>
+        </li>
+        <li>
+          Projekt na geografię
+          <button onclick="wykonane(this)">Wykonane</button>
+        </li>
+      </ul>
+    </main>
+
+    <script>
+      function wykonane(przycisk) {
+        let elementListy = przycisk.parentElement;
+        elementListy.style.textDecoration = 'line-through';
+      }
+
+      function dodajZadanie() {
+        let zadanie = document.getElementById('dodaj-pole').value;
+        document.getElementById('lista').innerHTML +=
+          '<li>' + zadanie + '<button onclick="wykonane(this)">Wykonane</button></li>';
+      }
+    </script>
+  </body>
+</html>

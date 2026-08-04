@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto-VF.ttf') format('truetype-variations'),
+       url('/fonts/Roboto-VF.ttf') format('truetype') tech('variations');
+  font-weight: 100 1000;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto-Italic-VF.ttf') format('truetype-variations'),
+       url('/fonts/Roboto-Italic-VF.ttf') format('truetype') tech('variations');
+  font-weight: 100 1000;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono-VF.ttf') format('truetype-variations'),
+       url('/fonts/JetBrainsMono-VF.ttf') format('truetype') tech('variations');
+  font-weight: 100 1000;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono-Italic-VF.ttf') format('truetype-variations'),
+       url('/fonts/JetBrainsMono-Italic-VF.ttf') format('truetype') tech('variations');
+  font-weight: 100 1000;
+  font-style: italic;
+  font-display: swap;
+}

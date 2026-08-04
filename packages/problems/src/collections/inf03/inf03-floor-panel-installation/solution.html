@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Montaż paneli podłogowych</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+
+      body {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Kalkulator kosztów montażu</h1>
+
+    <label for="szerokosc">Szerokość pomieszczenia [m]: </label>
+    <input type="number" id="szerokosc" />
+
+    <label for="dlugosc">Długość pomieszczenia [m]: </label>
+    <input type="number" id="dlugosc" />
+
+    <p>Typ panelu</p>
+
+    <input type="radio" name="typ-panelu" id="laminowane" />
+    <label for="laminowane">Panele laminowane</label>
+    <br />
+
+    <input type="radio" name="typ-panelu" id="winylowe" />
+    <label for="winylowe">Panele winylowe</label>
+    <br />
+
+    <input type="radio" name="typ-panelu" id="deska" />
+    <label for="deska">Deska podłogowa</label>
+    <br />
+
+    <button id="przycisk" onclick="oblicz()">Oblicz</button>
+
+    <p id="wynik"></p>
+
+    <script>
+      function oblicz() {
+        let szerokoscInput = document.getElementById('szerokosc');
+        let dlugoscInput = document.getElementById('dlugosc');
+
+        if (szerokoscInput.value !== '' && dlugoscInput.value !== '') {
+          let szerokosc = szerokoscInput.value;
+          let dlugosc = dlugoscInput.value;
+
+          let pole = szerokosc * dlugosc;
+
+          let koszt = 0;
+          if (document.getElementById('laminowane').checked) {
+            koszt = pole * 12;
+          } else if (document.getElementById('winylowe').checked) {
+            koszt = pole * 14;
+          } else if (document.getElementById('deska').checked) {
+            koszt = pole * 18;
+          }
+
+          document.getElementById('wynik').innerHTML =
+            'Pole powierzchni pomieszczenia: ' + pole + ', koszt montażu ' + koszt;
+        } else {
+          document.getElementById('wynik').innerHTML = 'Wprowadź poprawne dane.';
+        }
+      }
+    </script>
+  </body>
+</html>

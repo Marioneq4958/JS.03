@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Średnia ocen</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Wyznaczenie najniższej średniej</h3>
+
+    <ul>
+      <li>
+        <label for="polak">Polak</label>
+        <input type="text" id="polak" />
+      </li>
+      <li>
+        <label for="nowak">Nowak</label>
+        <input type="text" id="nowak" />
+      </li>
+      <li>
+        <label for="rysik">Rysik</label>
+        <input type="text" id="rysik" />
+      </li>
+    </ul>
+    <button id="wyznacz" onclick="wyznacz()">wyznacz</button>
+
+    <h3>Najniższa średnia</h3>
+    <div id="wynik"></div>
+
+    <script>
+      function wyznacz() {
+        let polak = document.getElementById('polak').value;
+        let nowak = document.getElementById('nowak').value;
+        let rysik = document.getElementById('rysik').value;
+
+        if (polak === '' || isNaN(polak) || nowak === '' || isNaN(nowak) || rysik === '' || isNaN(rysik)) {
+          alert('wpisz poprawne dane');
+        } else {
+          let polakLiczba = Number(polak);
+          let nowakLiczba = Number(nowak);
+          let rysikLiczba = Number(rysik);
+
+          if (polakLiczba < nowakLiczba) {
+            if (polakLiczba < rysikLiczba) {
+              document.getElementById('wynik').innerHTML = polakLiczba;
+            } else {
+              document.getElementById('wynik').innerHTML = rysikLiczba;
+            }
+          } else {
+            if (nowakLiczba < rysikLiczba) {
+              document.getElementById('wynik').innerHTML = nowakLiczba;
+            } else {
+              document.getElementById('wynik').innerHTML = rysikLiczba;
+            }
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

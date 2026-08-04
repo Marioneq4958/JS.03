@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pizzeria Margherita</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+
+      body {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Oblicz koszt dostawy</h3>
+    <input type="checkbox" id="zielona-gora" />
+    <label for="zielona-gora">Jestem z Zielonej Góry</label>
+    <p>albo</p>
+    <label for="liczba-kilometrow">Podaj liczbę kilometrów od Zielonej Góry: </label>
+    <input type="number" id="liczba-kilometrow" />
+    <br />
+    <button id="oblicz" onclick="oblicz()">Oblicz</button>
+    <p id="wynik"></p>
+
+    <script>
+      function oblicz() {
+        let zielonaGora = document.getElementById('zielona-gora').checked;
+        let liczbaKilometrow = Number(document.getElementById('liczba-kilometrow').value);
+
+        if (zielonaGora) {
+          document.getElementById('wynik').innerHTML = 'Dowieziemy Twoją pizzę za darmo';
+        } else {
+          document.getElementById('wynik').innerHTML =
+            'Dowóz będzie Cię kosztował ' + liczbaKilometrow * 2 + ' złotych';
+        }
+      }
+    </script>
+  </body>
+</html>

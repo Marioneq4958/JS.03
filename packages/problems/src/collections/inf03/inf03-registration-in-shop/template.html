@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sklep - rejestracja</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+
+      button {
+        background-color: steelblue;
+        color: white;
+        width: 20%;
+        padding: 15px;
+      }
+
+      button:hover {
+        background-color: navy;
+      }
+
+      section {
+        background-color: lightblue;
+        padding: 20px;
+      }
+
+      #blok-adres,
+      #blok-kontakt {
+        display: none;
+      }
+
+      #pasek-postepu {
+        background-color: lightgrey;
+      }
+
+      #pasek-postepu-blok {
+        background-color: navy;
+        height: 30px;
+        width: 4%;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="przycisk-klient">Klient</button>
+    <button id="przycisk-adres">Adres</button>
+    <button id="przycisk-kontakt">Kontakt</button>
+
+    <section id="blok-klient">
+      <p>
+        <label for="imie">Imię</label>
+      </p>
+      <input type="text" id="imie" />
+
+      <p>
+        <label for="nazwisko">Nazwisko</label>
+      </p>
+      <input type="text" id="nazwisko" />
+
+      <p>
+        <label for="data-ur">Data urodzenia</label>
+      </p>
+      <input type="date" id="data-ur" />
+    </section>
+
+    <section id="blok-adres">
+      <p>
+        <label for="ulica">Ulica</label>
+      </p>
+      <input type="text" id="ulica" />
+
+      <p>
+        <label for="numer">Numer</label>
+      </p>
+      <input type="number" id="numer" />
+
+      <p>
+        <label for="miasto">Miasto</label>
+      </p>
+      <input type="text" id="miasto" />
+    </section>
+
+    <section id="blok-kontakt">
+      <p>
+        <label for="numer-kom">Numer komórkowy</label>
+      </p>
+      <input type="tel" id="numer-kom" />
+      <br />
+
+      <input type="checkbox" id="rodo" />
+      <label for="rodo">Akceptuję RODO</label>
+      <br />
+
+      <button id="zatwierdz">Zatwierdź dane</button>
+    </section>
+
+    <div id="pasek-postepu">
+      <div id="pasek-postepu-blok"></div>
+    </div>
+
+    <script>
+      // Skrypt
+    </script>
+  </body>
+</html>

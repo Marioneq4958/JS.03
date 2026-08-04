@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tatuaże</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+
+      img {
+        max-height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <aside>
+      <h3>Dodaj wzór</h3>
+
+      <label for="wzor">Wzór: </label>
+      <br />
+      <input type="file" id="wzor" accept="image/png" />
+      <br />
+
+      <label for="kolor">Kolor: </label>
+      <br />
+      <select id="kolor">
+        <option value="Czarny">Czarny</option>
+        <option value="Czerwony">Czerwony</option>
+        <option value="Zielony">Zielony</option>
+        <option value="Niebieski">Niebieski</option>
+      </select>
+      <br />
+
+      <label for="cena">Cena: </label>
+      <br />
+      <input type="number" id="cena" />
+      <br />
+
+      <button id="dodaj-wzor" onclick="dodajWzor()">Dodaj wzór</button>
+    </aside>
+
+    <section id="galeria">
+      <h2>Galeria</h2>
+      <img src="smok.png" alt="smok.png" class="miniatury" />
+      <img src="koliber.png" alt="koliber.png" class="miniatury" />
+    </section>
+
+    <script>
+      function dodajWzor() {
+        let plik = document.getElementById('wzor').files[0].name;
+        let kolor = document.getElementById('kolor').value;
+        let cena = document.getElementById('cena').value;
+
+        alert('Wzór: ' + plik + ', kolor ' + kolor + ' w cenie ' + cena + ' zł');
+
+        document.getElementById('galeria').innerHTML += '<img src="' + plik + '" alt="' + plik + '" class="miniatury">';
+      }
+    </script>
+  </body>
+</html>

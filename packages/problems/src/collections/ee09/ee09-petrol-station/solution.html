@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stacja paliw</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Oblicz, ile litrów musisz zatankować</h3>
+    <label for="dystans">dystans do przejechania w km: </label>
+    <br />
+    <input type="number" id="dystans" />
+    <br />
+    <label for="spalanie">spalanie samochodu w 100km</label>
+    <br />
+    <input type="number" id="spalanie" />
+    <br />
+    <button id="oblicz" onclick="oblicz()">OBLICZ</button>
+    <p id="wynik"></p>
+
+    <script>
+      function oblicz() {
+        let dystans = Number(document.getElementById('dystans').value);
+        let spalanie = Number(document.getElementById('spalanie').value);
+        let potrzebne = (dystans * spalanie) / 100;
+        document.getElementById('wynik').innerHTML = 'Potrzebujesz: ' + potrzebne + ' litrów paliwa';
+      }
+    </script>
+  </body>
+</html>

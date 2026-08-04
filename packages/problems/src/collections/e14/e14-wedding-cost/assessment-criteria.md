@@ -1,0 +1,12 @@
+| R.4   | Rezultat 4: Skrypt                                                                                                                                                                                                   |
+| :---- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|       | _UWAGA: w R.4.7 dopuszczalne błędy literowe na zasadach opisanych w R.2<br>W przypadku braku widocznych efektów działania skryptu R.4.2 - R.4.6 należy sprawdzić w kodzie, instrukcje muszą być poprawne składniowo_ |
+| R.4.1 | Skrypt napisano w języku JavaScript                                                                                                                                                                                  |
+| R.4.2 | Ustawiono dla przycisku obsługę zdarzenia wybrania przycisku, przypisując funkcję zdefiniowaną w skrypcie                                                                                                            |
+| R.4.3 | Skrypt odczytuje dane z pola numerycznego                                                                                                                                                                            |
+| R.4.4 | Skrypt odczytuje dane z pola typu checkbox                                                                                                                                                                           |
+| R.4.5 | Skrypt oblicza koszt wesela ze względu na liczbę gości. Koszt jednego gościa to 100 zł                                                                                                                               |
+| R.4.6 | Skrypt powiększa koszt wesela o 30% w przypadku zaznaczonego pola checkbox                                                                                                                                           |
+| R.4.7 | Wynik działania skryptu jest wypisywany na stronie pod przyciskiem w sposób: „Koszt Twojego wesela to ... złotych”, gdzie w miejscu kropek wstawiony jest obliczony koszt wesela                                     |
+
+> Tabela jest fragmentem zasad oceniania arkusza `E.14-05-18.06`, których treść jest dostępna m.in. pod adresem <https://chr1skyy.github.io/Egzamin-Zawodowy-E14-EE09-INF03/e14/e14_2018_06_05/e_14_2018_06_05_zo.pdf>. Wygląd tabeli dostosowano do platformy.

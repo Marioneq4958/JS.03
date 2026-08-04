@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pogotowie komputerowe</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Formularz kontaktowy</h3>
+    <form>
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <label for="imie">Imię: </label>
+            </td>
+            <td>
+              <input type="text" id="imie" />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="nazwisko">Nazwisko: </label>
+            </td>
+            <td>
+              <input type="text" id="nazwisko" />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="email">E-mail: </label>
+            </td>
+            <td>
+              <input type="email" id="email" />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="usluga">Usługa: </label>
+            </td>
+            <td>
+              <select id="usluga">
+                <option value="naprawa komputera">naprawa komputera</option>
+                <option value="odzyskiwanie danych">odzyskiwanie danych</option>
+                <option value="problemy z oprogramowaniem">problemy z oprogramowaniem</option>
+                <option value="konfiguracja sieci LAN">konfiguracja sieci LAN</option>
+                <option value="inne">inne</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <input type="checkbox" id="kopia-wiadomosci" checked />
+              <label for="kopia-wiadomosci">Wyślij kopię wiadomości</label>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <button type="reset">Resetuj</button>
+              <button type="button" id="przycisk" onclick="przeslij()">Prześlij</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+    <p id="wynik"></p>
+
+    <script>
+      function przeslij() {
+        let imie = document.getElementById('imie').value;
+        let nazwisko = document.getElementById('nazwisko').value;
+        let email = document.getElementById('email').value.toLowerCase();
+        let usluga = document.getElementById('usluga').value;
+
+        document.getElementById('wynik').innerHTML =
+          imie + ' ' + nazwisko + '<br>' + email + '<br>' + 'Usługa: ' + usluga;
+      }
+    </script>
+  </body>
+</html>

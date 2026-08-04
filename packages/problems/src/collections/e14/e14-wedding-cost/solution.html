@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom Weselny</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+
+      body {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Ile będzie kosztowało moje wesele?</h2>
+    <label for="liczba-gosci">Podaj liczbę gości: </label>
+    <input type="number" id="liczba-gosci" />
+    <br />
+    <input type="checkbox" id="poprawiny" />
+    <label for="poprawiny">Wesele z poprawinami?</label>
+    <button id="oblicz" onclick="oblicz()">Oblicz koszt</button>
+    <p id="wynik"></p>
+
+    <script>
+      function oblicz() {
+        let poprawiny = document.getElementById('poprawiny').checked;
+        let liczbaGosci = Number(document.getElementById('liczba-gosci').value);
+
+        if (poprawiny) {
+          let koszt = liczbaGosci * 100 * 1.3;
+          document.getElementById('wynik').innerHTML = 'Koszt Twojego wesela to ' + koszt + ' złotych';
+        } else {
+          let koszt = liczbaGosci * 100;
+          document.getElementById('wynik').innerHTML = 'Koszt Twojego wesela to ' + koszt + ' złotych';
+        }
+      }
+    </script>
+  </body>
+</html>
